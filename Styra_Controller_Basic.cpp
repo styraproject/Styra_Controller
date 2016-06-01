@@ -22,21 +22,6 @@
 #include <stdarg.h>
 //#define SERIAL_DEBUG
 
-
-// StyraControllerBasic::StyraControllerBasic(uint8_t b0, uint8_t b1, uint8_t b2, uint8_t b3, uint8_t b4) {
-
-//   //memcpy(_button_pin_mapping,button_pins,num_buttons * sizeof(uint8_t));
-//   _button_pin_mapping[0] = b0;
-//   _button_pin_mapping[1] = b1;
-//   _button_pin_mapping[2] = b2;
-//   _button_pin_mapping[3] = b3;
-//   _button_pin_mapping[4] = b4;
-//   _num_buttons = 5;
-
-//   _dbi = new DebouncedInput [8];
-
-// }
-
 StyraControllerBasic::StyraControllerBasic(uint8_t num_buttons, ...) {
 
   va_list ap;
@@ -46,15 +31,9 @@ StyraControllerBasic::StyraControllerBasic(uint8_t num_buttons, ...) {
   } else {
     _num_buttons = 8;
   }
-  Serial.print("Num Buttons: ");
-  Serial.println(_num_buttons);
-  Serial.println("platypuscreations");
 
   for (int i=0; i < _num_buttons; i++ ) {
     _button_pin_mapping[i] = (uint8_t) va_arg(ap,int);
-    Serial.print(i);
-    Serial.print(",");
-    Serial.println(_button_pin_mapping[i]);
   }
   va_end(ap);
 

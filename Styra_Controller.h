@@ -17,6 +17,9 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */ 
 
+#ifndef __STYRA_CONTROLLER_H__
+#define __STYRA_CONTROLLER_H__
+
 #define RELEASED 0
 #define PRESSED 1
 #define NONE_PRESSED 255
@@ -31,3 +34,5 @@ public:
     virtual uint8_t getPressedButton() = 0;
     virtual void displayButtonPress() = 0;
 };
+
+#endif /*__STYRA_CONTROLLER_H__*/
